@@ -7,6 +7,10 @@
   font-size: var(--fs-16);
 }
 
+.fs-20 {
+  font-size: var(--fs-20);
+}
+
 /* Button */
 button {
   height: 36px;
