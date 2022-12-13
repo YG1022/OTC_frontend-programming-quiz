@@ -1,0 +1,25 @@
+:root {
+  --white: #ffffff;
+  --black-5: rgba(0, 0, 0, 0.05);
+  --black-25: rgba(0, 0, 0, 0.25);
+  --black-30: rgba(0, 0, 0, 0.3);
+  --gray-80: rgba(51, 51, 51, 0.8);
+  --red-80: rgba(189, 49, 36, 0.8);
+  --pink-80: rgba(222, 134, 143, 0.8);
+  --pink-60: rgba(222, 134, 143, 0.6);
+}
+
+:root {
+  --color-background: var(--black-5);
+  --color-shadow: var(--black-30);
+  --color-primary: var(--pink-80);
+  --color-primary-active: var(--pink-60);
+  --color-default: var(--black-25);
+  --color-default-active: var(--black-5);
+  --color-text: var(--gray-80);
+  --color-danger: var(--red-80);
+  --color-required: var(--red-80);
+  --color-placeholder: var(--black-25);
+  --fs-14: 14px;
+  --fs-16: 16px;
+}

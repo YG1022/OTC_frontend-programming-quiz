@@ -1,0 +1,38 @@
+/* Font */
+.fs-14 {
+  font-size: var(--fs-14);
+}
+
+.fs-16 {
+  font-size: var(--fs-16);
+}
+
+/* Button */
+button {
+  height: 36px;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button.primary {
+  color: var(--white);
+  background-color: var(--color-primary);
+}
+
+button.primary:active {
+  background-color: var(--color-primary-active);
+}
+
+button.default {
+  color: var(--color-text);
+  border: 1px solid var(--color-default);
+}
+
+button.default:active {
+  background-color: var(--color-default-active);
+}
