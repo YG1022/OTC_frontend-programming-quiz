@@ -12,6 +12,8 @@
 # 注意：Node 版本需满足 ^14.18.0 || >=16.0.0
 # 请使用 yarn 安装依赖
 yarn install
+# 启动 mock server
+yarn mock:server
 # 启动项目
 yarn dev
 ```
@@ -21,6 +23,46 @@ yarn dev
 手机配件厂商 *Nia（后统一称为该厂家）* 为了方便管理线下零散的手机配件订单，决定开发一系列简易的系统来提升订单管理的效率，同时节省线下沟通、审核的成本。
 
 该系统一共分为C端和B端两个系统，B端是该厂家使用来管理订单、库存及物流等信息；C端是给线下手机配件店老板（后统一称为店主）使用来下单的。B端的系统（*Frontend + Backend*）已经开发完毕，C端的后端也已经 *Ready*，你需要为店主们开发一套易用的系统来帮助他们完成日常的下单。
+
+### B端后端 API
+
+#### 商品订单列表
+
+```typescript
+/**
+ * @api /api/orders
+ * @method GET
+ * @returns {Array<提交订单类型>}
+ */
+```
+
+#### 提交订单
+
+```typescript
+/**
+ * @api /api/orders
+ * @method POST
+ * @header Content-Type: application/json （POST 请求添加）
+ * @returns {请自己设计}
+ */
+```
+
+#### 库存商品
+
+```typescript
+/**
+ * @api /api/goods
+ * @method GET
+ * @returns {{
+ *  id: string,
+ *  name: string,
+ *  description: string,
+ *  cover: string,
+ *  stock: number,
+ *  price: number
+ * }[]}
+ */
+```
 
 ## 原型图
 
