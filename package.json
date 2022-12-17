@@ -1,5 +1,5 @@
 {
-  "name": "otc-frontend-programming-quiz",
+  "name": "frontend-programming-quiz",
   "version": "0.1.0",
   "scripts": {
     "dev": "vite",

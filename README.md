@@ -1,1 +1,1 @@
-# OTC Frontend Programming Quiz
+# Frontend Programming Quiz
