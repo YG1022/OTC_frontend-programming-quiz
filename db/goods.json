@@ -1,0 +1,42 @@
+[
+  {
+    "id": "de4485c1-1c21-4c9c-91dd-f4d18366f9c0",
+    "name": "Type-C 数据线",
+    "description": "原装 USB-C 数据线 100cm，黑色编织线版 100cm，支持快充适配小米手机。",
+    "cover": "https://img10.360buyimg.com/n7/jfs/t1/109281/17/34025/24300/63636283Ecfc951e3/7c5235f08e4c1f8a.jpg",
+    "stock": 97,
+    "price": 9.9
+  },
+  {
+    "id": "686b508a-3bfc-4073-8ff7-f34333519d36",
+    "name": "高清钢化膜",
+    "description": "iPhone13 钢化膜，iPhone13ProMax 手机膜，Mini 全屏无边高清抗指纹抗蓝光防窥保护贴膜【抗蓝光】2片",
+    "cover": "https://img11.360buyimg.com/n7/jfs/t1/94453/33/30298/99004/62cd37d8E038471ca/416939824ea75d58.jpg",
+    "stock": 160,
+    "price": 12.8
+  },
+  {
+    "id": "e2bec99c-c7ee-4558-87a8-c626d44ec0a5",
+    "name": "硅胶手机壳",
+    "description": "iPhone13 手机壳，iPhone14ProMax 保护套，iPhone12Plus 液态硅胶全包防摔男女通用【液态硅胶】。",
+    "cover": "https://img11.360buyimg.com/n7/jfs/t1/134712/22/22640/89803/636f0177E7970ae32/b517e05f35686026.jpg",
+    "stock": 63,
+    "price": 48.8
+  },
+  {
+    "id": "f1926c8c-5b59-4943-9e6c-f73f06808286",
+    "name": "Type-C 转 USB 转接头",
+    "description": "OTG 数据线，Type-C 转 USB 转接头，USB-C 转换器通用，华为Mate30、小米10、安卓手机，Type-C 转 USB 转接线【金色约15cm】。",
+    "cover": "https://img10.360buyimg.com/n1/jfs/t1/198532/29/3901/94805/611dc7c8Ebaf5309d/118d24b1ce79ca8a.jpg",
+    "stock": 77,
+    "price": 4.5
+  },
+  {
+    "id": "38ce2d15-be6b-4cd0-ab40-c697dc057c2e",
+    "name": "三合一数据线",
+    "description": "数据线三合一，苹果、Type-C、安卓手机充电线多功能一拖三头，适用苹果、小米、华为、荣耀、三星、VIVO，1.5米车载多用。",
+    "cover": "https://img13.360buyimg.com/n7/jfs/t1/58488/33/22551/96440/639975c9E4bff57fb/c34ce77a90fa04c5.jpg",
+    "stock": 107,
+    "price": 24.4
+  }
+]
