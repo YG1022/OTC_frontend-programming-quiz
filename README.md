@@ -5,6 +5,7 @@
 该项目由 `Vite` 脚手架搭建，使用 `TypeScript` 作为基础编程语言，UI框架和测试库分别使用的是 `Vue2(Composition API & Option API) & Vitest`。
 
 > 项目中并没有引入 `UI Lib` 辅助开发，但你可以按需引入；在满足下面验收标准的前提下，你可以疯狂“炫技”，展示你最好的一面。
+> 项目允许使用 `JavaScript`，直接使用即可，如果有 `lint` 报错请忽视。
 
 ## 如何启动
 
