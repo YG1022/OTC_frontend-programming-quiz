@@ -48,6 +48,15 @@ yarn dev
  */
 ```
 
+#### 删除订单
+
+```typescript
+/**
+ * @api /api/orders/{id}
+ * @method DELETE
+ */
+```
+
 #### 库存商品
 
 ```typescript
