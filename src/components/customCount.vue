@@ -5,5 +5,7 @@
     <button class="btn btn-light">+</button>
   </div>
 </template>
-<script setup></script>
+
+<script setup lang="ts"></script>
+
 <style></style>

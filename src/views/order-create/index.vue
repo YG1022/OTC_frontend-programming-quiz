@@ -7,5 +7,7 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "OrderCreatePage",
-})
+});
 </script>
+
+<style scoped></style>

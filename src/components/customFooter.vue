@@ -5,3 +5,7 @@
     <button type="button" class="footer-btn btn btn-primary">提交</button>
   </div>
 </template>
+
+<script setup lang="ts"></script>
+
+<style></style>
