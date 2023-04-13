@@ -1,6 +1,9 @@
 <template>
   <main>
     <header class="header fs-20">订货信息填写</header>
+    <div class="form">
+      <custom-form />
+    </div>
     <div class="goods">
       <custom-good v-for="good in goods" :key="good.id" :good="good" />
     </div>
@@ -13,6 +16,7 @@
 <script lang="ts">
 import { defineComponent, onMounted } from "vue";
 import axios from "axios";
+import CustomForm from "@/components/custom-form/index.vue";
 import CustomGood from "@/components/custom-good/index.vue";
 import CustomFooter from "@/components/custom-footer/index.vue";
 import { goodsStore } from "@/store/store";
@@ -30,6 +34,7 @@ const goodData = (data: good[]) => {
 export default defineComponent({
   name: "OrderCreatePage",
   components: {
+    CustomForm,
     CustomGood,
     CustomFooter,
   },
