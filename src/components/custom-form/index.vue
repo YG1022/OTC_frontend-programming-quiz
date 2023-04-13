@@ -12,7 +12,7 @@
           {{ prefix }}
         </option>
       </select>
-      <el-input v-model="form.phone"> </el-input>
+      <el-input v-model="form.phone"></el-input>
     </el-form-item>
     <el-form-item label="收货地址" prop="address">
       <select v-model="form.province" @change="updateCities">
@@ -30,7 +30,7 @@
           {{ district }}
         </option>
       </select>
-      <el-input v-model="form.unit"></el-input>
+      <el-input v-model="form.address"></el-input>
     </el-form-item>
     <label>选择商品</label>
   </el-form>
@@ -58,7 +58,7 @@ export default defineComponent({
       province: "",
       city: "",
       discrict: "",
-      unit: "",
+      address: "",
     };
 
     return {
