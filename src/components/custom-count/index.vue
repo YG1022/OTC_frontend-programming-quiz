@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import type { good } from "@/constants/type";
-import { defineComponent, reactive } from "vue";
+import { defineComponent, reactive, watch } from "vue";
 import { goodsStore } from "@/store/store";
 
 export default defineComponent({
@@ -22,6 +22,7 @@ export default defineComponent({
 
   setup(props) {
     const goodObj = reactive(props.obj);
+    const maxQuantity = goodObj.stock;
     const handleAdd = () => {
       if (goodObj.amount < goodObj.stock) {
         goodObj.amount++;
@@ -34,6 +35,16 @@ export default defineComponent({
         goodsStore.updateGood(goodObj);
       }
     };
+    watch(
+      () => goodObj.amount,
+      (newValue) => {
+        if (newValue > maxQuantity) {
+          goodObj.amount = maxQuantity;
+        } else if (newValue < 0) {
+          goodObj.amount = 0;
+        }
+      }
+    );
 
     return { goodObj, handleAdd, handleSub };
   },
