@@ -5,7 +5,7 @@
       <custom-good v-for="good in goods" :key="good.id" :good="good" />
     </div>
     <div class="footer">
-      <custom-footer />
+      <custom-footer :goodsArray="goods" />
     </div>
   </main>
 </template>
