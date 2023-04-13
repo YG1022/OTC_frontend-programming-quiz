@@ -51,6 +51,7 @@ export default defineComponent({
         return;
       }
 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const formComponent = this.$refs.myForm as any;
       const formData = formComponent.$refs.form;
       formData.validate((valid: boolean) => {
