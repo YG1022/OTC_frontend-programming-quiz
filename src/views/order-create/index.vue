@@ -1,6 +1,6 @@
 <template>
   <main>
-    <h1>Order Create</h1>
+    <header class="header fs-20">订货信息填写</header>
     <div class="goods">
       <custom-good v-for="good in goods" :key="good.id" :good="good" />
     </div>
@@ -47,4 +47,12 @@ export default defineComponent({
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.header {
+  height: 64px;
+  line-height: 64px;
+  text-align: center;
+  background-color: var(--white);
+  box-shadow: 0 4px 6px 0 var(--color-shadow);
+}
+</style>
