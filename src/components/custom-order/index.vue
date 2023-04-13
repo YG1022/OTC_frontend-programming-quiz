@@ -1,11 +1,9 @@
 <template>
   <div class="my-orders-item">
     <div class="left">
-      <div class="custom-control custom-checkbox">
-        <label class="custom-control-label" for="input">
-          <img :src="order.goods[0].cover" alt="" />
-        </label>
-      </div>
+      <label class="custom-control-label" for="input">
+        <img :src="order.goods[0].cover" alt="" />
+      </label>
     </div>
     <div class="right">
       <div class="top">收货人: {{ order.consignee }}</div>
@@ -15,8 +13,8 @@
         {{ order.address }}
       </div>
       <div class="bottom">
-        <span class="price">¥ {{ order.totalPrice }}</span>
-        <el-button @click="deleteOrder">删除</el-button>
+        <p class="price">¥ {{ order.totalPrice.toFixed(2) }}</p>
+        <el-button class="del-button" @click="deleteOrder">删除</el-button>
       </div>
     </div>
   </div>
@@ -45,4 +43,44 @@ export default defineComponent({
 });
 </script>
 
-<style></style>
+<style scoped>
+.left {
+  width: 220px;
+  height: 220px;
+  padding: 10px;
+  margin-right: 20px;
+}
+img {
+  width: 200px;
+  height: 200px;
+  border-radius: 8px;
+}
+.right {
+  width: 100%;
+  height: 220px;
+  padding: 10px;
+  position: relative;
+}
+.top {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.bottom {
+  display: flex;
+  position: absolute;
+  bottom: 10px;
+  width: 95%;
+  justify-content: space-between;
+  align-items: center;
+}
+.price {
+  font-size: var(--fs-20);
+  font-weight: 700;
+  color: var(--color-primary);
+}
+.del-button {
+  color: var(--white);
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+}
+</style>
