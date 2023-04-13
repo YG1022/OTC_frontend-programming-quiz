@@ -1,18 +1,20 @@
 <template>
   <main>
     <header class="header fs-20">订货信息填写</header>
-    <div class="form">
-      <custom-form ref="myForm" />
-    </div>
-    <div class="goods">
-      <custom-good v-for="good in goods" :key="good.id" :good="good" />
-    </div>
-    <div class="footer">
-      <custom-footer :goodsArray="goods" />
-    </div>
-    <div class="btn-content">
-      <el-button @click="cancelOrder">取消</el-button>
-      <el-button @click="submitForm">提交</el-button>
+    <div class="form-content">
+      <div class="form">
+        <custom-form ref="myForm" />
+      </div>
+      <div class="goods">
+        <custom-good v-for="good in goods" :key="good.id" :good="good" />
+      </div>
+      <div class="footer">
+        <custom-footer :goodsArray="goods" />
+      </div>
+      <div class="btn-content">
+        <el-button @click="cancelOrder">取消</el-button>
+        <el-button @click="submitForm">提交</el-button>
+      </div>
     </div>
     <el-dialog
       title="确认取消订单"
@@ -125,5 +127,14 @@ export default defineComponent({
   text-align: center;
   background-color: var(--white);
   box-shadow: 0 4px 6px 0 var(--color-shadow);
+}
+.form-content {
+  margin: 20px 300px;
+  padding: 36px 300px;
+  background-color: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px 0 var(--color-shadow);
+  display: flex;
+  flex-direction: column;
 }
 </style>

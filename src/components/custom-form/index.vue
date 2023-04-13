@@ -1,21 +1,25 @@
 <template>
   <el-form ref="form" :model="form" :rules="rules" label-width="80px">
-    <el-form-item label="姓名" prop="consignee">
-      <el-input v-model="form.consignee"></el-input>
+    <el-form-item class="consignee-content" label="姓名" prop="consignee">
+      <el-input class="consignee" v-model="form.consignee"></el-input>
     </el-form-item>
-    <el-form-item label="昵称" prop="nickName">
-      <el-input v-model="form.nickName"></el-input>
+    <el-form-item class="nick-name-content" label="昵称" prop="nickName">
+      <el-input class="nick-name" v-model="form.nickName"></el-input>
     </el-form-item>
-    <el-form-item label="手机号码" prop="phone">
-      <el-select v-model="form.prefix">
+    <el-form-item class="phone-content" label="手机号码" prop="phone">
+      <el-select class="prefix" v-model="form.prefix">
         <el-option v-for="prefix in prefixes" :value="prefix" :key="prefix">
           {{ prefix }}
         </el-option>
       </el-select>
-      <el-input type="number" v-model="form.phone"></el-input>
+      <el-input class="phone" type="number" v-model="form.phone"></el-input>
     </el-form-item>
-    <el-form-item label="收货地址" prop="address">
-      <el-select v-model="form.province" @change="updateCities">
+    <el-form-item class="address-content" label="收货地址" prop="address">
+      <el-select
+        class="province"
+        v-model="form.province"
+        @change="updateCities"
+      >
         <el-option
           v-for="province in provinces"
           :value="province"
@@ -24,12 +28,12 @@
           {{ province }}
         </el-option>
       </el-select>
-      <el-select v-model="form.city" @change="updateDistricts">
+      <el-select class="city" v-model="form.city" @change="updateDistricts">
         <el-option v-for="city in cities" :value="city" :key="city">
           {{ city }}
         </el-option>
       </el-select>
-      <el-select v-model="form.discrict">
+      <el-select class="district" v-model="form.discrict">
         <el-option
           v-for="district in districts"
           :value="district"
@@ -38,9 +42,13 @@
           {{ district }}
         </el-option>
       </el-select>
-      <el-input type="textarea" v-model="form.address"></el-input>
+      <el-input
+        class="address"
+        type="textarea"
+        v-model="form.address"
+      ></el-input>
     </el-form-item>
-    <label>选择商品</label>
+    <label class="label">选择商品</label>
   </el-form>
 </template>
 
@@ -119,4 +127,27 @@ export default defineComponent({
 });
 </script>
 
-<style></style>
+<style scoped>
+.prefix {
+  width: 15%;
+}
+.phone {
+  width: 85%;
+}
+.province {
+  width: 33%;
+}
+.city {
+  width: 33%;
+}
+.district {
+  width: 33%;
+}
+.address {
+  margin-top: 12px;
+}
+.label {
+  margin: 20px 0 0 10px;
+  font-size: 14px;
+}
+</style>
