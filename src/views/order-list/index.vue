@@ -6,17 +6,38 @@
         <button type="button" class="btn btn-primary">新增订单</button>
       </RouterLink>
     </header>
-    <p class="description fs-20">请在此项目基础上完成 README 中的任务</p>
+    <custom-order v-for="order in orders" :key="order.id" :order="order" />
   </main>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, onMounted } from "vue";
 import { RouterLink } from "vue-router";
+import CustomOrder from "@/components/custom-order/index.vue";
+import { ordersStore } from "@/store/store";
+import axios from "axios";
 
 export default defineComponent({
   name: "OrderListPage",
-  components: { RouterLink },
+  components: {
+    RouterLink,
+    CustomOrder,
+  },
+  computed: {
+    orders() {
+      return ordersStore.ordersList;
+    },
+  },
+
+  setup() {
+    onMounted(() => {
+      axios.get("/api/orders").then((res) => {
+        ordersStore.setOrdersList(res.data);
+      });
+    });
+
+    return {};
+  },
 });
 </script>
 

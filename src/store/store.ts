@@ -1,4 +1,4 @@
-import type { good, goodsSate } from "@/constants/type";
+import type { good, goodsSate, ordersState } from "@/constants/type";
 import { reactive } from "vue";
 
 export const goodsStore = reactive<goodsSate>({
@@ -13,5 +13,20 @@ export const goodsStore = reactive<goodsSate>({
     goodsStore.goodsList[index] = good;
 
     localStorage.setItem("goods", JSON.stringify(goodsStore.goodsList));
+  },
+});
+
+export const ordersStore = reactive<ordersState>({
+  ordersList: [],
+  setOrdersList: (ordersList: ordersState["ordersList"]) => {
+    ordersStore.ordersList = ordersList;
+
+    localStorage.setItem("orders", JSON.stringify(ordersList));
+  },
+  deleteOrder: (id: number) => {
+    const index = ordersStore.ordersList.findIndex((item) => item.id === id);
+    ordersStore.ordersList.splice(index, 1);
+
+    localStorage.setItem("orders", JSON.stringify(ordersStore.ordersList));
   },
 });
