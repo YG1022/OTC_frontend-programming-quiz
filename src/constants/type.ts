@@ -7,3 +7,7 @@ export type good = {
   price: number;
   amount: number;
 };
+
+export type goodsSate = {
+  goodsList: good[];
+};

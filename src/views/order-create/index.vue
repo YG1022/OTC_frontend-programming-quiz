@@ -4,12 +4,17 @@
     <div class="goods">
       <custom-good v-for="good in goods" :key="good.id" :good="good" />
     </div>
+    <div class="footer">
+      <custom-footer />
+    </div>
   </main>
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref } from "vue";
+import { defineComponent, onMounted } from "vue";
 import CustomGood from "@/components/custom-good/index.vue";
+import CustomFooter from "@/components/custom-footer/index.vue";
+import { goodsStore } from "@/store/store";
 import type { good } from "@/constants/type";
 
 const goodData = (data: good[]) => {
@@ -25,18 +30,19 @@ export default defineComponent({
   name: "OrderCreatePage",
   components: {
     CustomGood,
+    CustomFooter,
   },
 
   setup() {
-    const goods = ref<good[]>([]);
-
     onMounted(() => {
       fetch("/api/goods", { method: "GET" })
         .then((res) => res.json())
-        .then((data) => (goods.value = goodData(data)));
+        .then((data) => (goodsStore.goodsList = goodData(data)));
     });
 
-    return { goods };
+    return {
+      goods: goodsStore.goodsList,
+    };
   },
 });
 </script>
