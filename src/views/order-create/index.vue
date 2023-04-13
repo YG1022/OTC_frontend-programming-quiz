@@ -55,7 +55,18 @@ export default defineComponent({
       const formData = formComponent.$refs.form;
       formData.validate((valid: boolean) => {
         if (valid) {
-          console.log(formData.model);
+          const orderData = {
+            ...formData.model,
+            goods: this.goods.filter((item: good) => item.amount > 0),
+            totalPrice: calTotalPrice(this.goods),
+          };
+          axios.post("/api/orders", orderData).then((res) => {
+            if (res.status === 201) {
+              alert("提交成功");
+              localStorage.removeItem("goods");
+              this.$router.push("/orders");
+            }
+          });
         } else {
           alert("请填写完整信息");
         }

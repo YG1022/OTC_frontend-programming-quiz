@@ -6,12 +6,12 @@ export const goodsStore = reactive<goodsSate>({
   setGoodsList: (goodsList: goodsSate["goodsList"]) => {
     goodsStore.goodsList = goodsList;
 
-    localStorage.setItem("goodsList", JSON.stringify(goodsList));
+    localStorage.setItem("goods", JSON.stringify(goodsList));
   },
   updateGood: (good: good) => {
     const index = goodsStore.goodsList.findIndex((item) => item.id === good.id);
     goodsStore.goodsList[index] = good;
 
-    localStorage.setItem("goodsList", JSON.stringify(goodsStore.goodsList));
+    localStorage.setItem("goods", JSON.stringify(goodsStore.goodsList));
   },
 });
