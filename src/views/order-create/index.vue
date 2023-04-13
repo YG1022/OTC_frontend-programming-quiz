@@ -10,15 +10,16 @@
 <script lang="ts">
 import { defineComponent, onMounted, ref } from "vue";
 import CustomGood from "@/components/custom-good/index.vue";
+import type { good } from "@/constants/type";
 
-interface good {
-  id: string;
-  name: string;
-  description: string;
-  cover: string;
-  stock: number;
-  price: number;
-}
+const goodData = (data: good[]) => {
+  return data.map((item) => {
+    return {
+      ...item,
+      amount: 0,
+    };
+  });
+};
 
 export default defineComponent({
   name: "OrderCreatePage",
@@ -32,7 +33,7 @@ export default defineComponent({
     onMounted(() => {
       fetch("/api/goods", { method: "GET" })
         .then((res) => res.json())
-        .then((data) => (goods.value = data));
+        .then((data) => (goods.value = goodData(data)));
     });
 
     return { goods };
