@@ -102,7 +102,16 @@ export default defineComponent({
             }
           });
         } else {
-          alert("请填写完整信息");
+          const errorFields = formData.fields.filter(
+            (item: { validateState: string }) => item.validateState === "error"
+          );
+          if (errorFields.length === 1) {
+            this.$message.error("请填写所有必填项");
+          } else {
+            console.log(errorFields);
+
+            this.$message.error("请完善订单信息");
+          }
         }
       });
     },
