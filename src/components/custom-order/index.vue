@@ -25,6 +25,8 @@
 <script lang="ts">
 import type { order } from "@/constants/type";
 import { defineComponent } from "vue";
+import { ordersStore } from "@/store/store";
+import axios from "axios";
 
 export default defineComponent({
   name: "CustomOrder",
@@ -36,7 +38,8 @@ export default defineComponent({
   },
   methods: {
     deleteOrder() {
-      this.$emit("deleteOrder", this.order);
+      ordersStore.deleteOrder(this.order.id);
+      axios.delete(`/api/orders/${this.order.id}`);
     },
   },
 });
