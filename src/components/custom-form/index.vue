@@ -7,9 +7,8 @@
       <el-input v-model="form.nickName"></el-input>
     </el-form-item>
     <el-form-item label="手机号码" prop="phone">
-      <el-input v-model="form.phone">
-        <el-select v-model="form.prefix"></el-select>
-      </el-input>
+      <el-select v-model="form.prefix"></el-select>
+      <el-input v-model="form.phone"> </el-input>
     </el-form-item>
     <el-form-item label="收货地址" prop="address">
       <el-select v-model="form.province"></el-select>
@@ -17,11 +16,7 @@
       <el-select v-model="form.discrict"></el-select>
       <el-input v-model="form.unit"></el-input>
     </el-form-item>
-    <el-form-item label="选择商品" prop="address"> </el-form-item>
-    <el-form-item size="large">
-      <el-button>取消</el-button>
-      <el-button type="primary" @click="onSubmit">提交</el-button>
-    </el-form-item>
+    <label>选择商品</label>
   </el-form>
 </template>
 
@@ -53,11 +48,6 @@ export default defineComponent({
     return {
       form: initialFormData,
     };
-  },
-  methods: {
-    onSubmit() {
-      console.log(this.form);
-    },
   },
 });
 </script>

@@ -2,13 +2,17 @@
   <main>
     <header class="header fs-20">订货信息填写</header>
     <div class="form">
-      <custom-form />
+      <custom-form ref="myForm" />
     </div>
     <div class="goods">
       <custom-good v-for="good in goods" :key="good.id" :good="good" />
     </div>
     <div class="footer">
       <custom-footer :goodsArray="goods" />
+    </div>
+    <div class="btn-content">
+      <button>取消</button>
+      <button @click="submitForm">提交</button>
     </div>
   </main>
 </template>
@@ -37,6 +41,20 @@ export default defineComponent({
     CustomForm,
     CustomGood,
     CustomFooter,
+  },
+  methods: {
+    submitForm() {
+      const formComponent = this.$refs.myForm as any;
+      const formData = formComponent.$refs.form;
+      formData.validate((valid: boolean) => {
+        if (valid) {
+          console.log(formData.model);
+        } else {
+          console.log("error submit!!");
+          return false;
+        }
+      });
+    },
   },
 
   setup() {
