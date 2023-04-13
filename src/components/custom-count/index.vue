@@ -1,7 +1,7 @@
 <template>
   <div class="my-counter">
     <button class="btn btn-light" @click="handleSub">-</button>
-    <span>{{ goodObj.amount || 0 }}</span>
+    <input type="number" v-model.number="goodObj.amount" />
     <button class="btn btn-light" @click="handleAdd">+</button>
   </div>
 </template>

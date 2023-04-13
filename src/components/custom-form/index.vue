@@ -1,5 +1,5 @@
 <template>
-  <el-form ref="form" :model="form" label-width="80px">
+  <el-form ref="form" :model="form" :rules="rules" label-width="80px">
     <el-form-item label="姓名" prop="consignee">
       <el-input v-model="form.consignee"></el-input>
     </el-form-item>
@@ -63,6 +63,13 @@ export default defineComponent({
 
     return {
       form: initialFormData,
+      rules: {
+        consignee: [{ required: true, message: "请填写姓名", trigger: "blur" }],
+        phone: [{ required: true, message: "请填写手机号码", trigger: "blur" }],
+        address: [
+          { required: true, message: "请填写收货地址", trigger: "blur" },
+        ],
+      },
       prefixes: ["+86", "+852", "+853", "+886"],
       provinces: ["Province A", "Province B", "Province C"],
       cities: [] as string[],

@@ -50,8 +50,7 @@ export default defineComponent({
         if (valid) {
           console.log(formData.model);
         } else {
-          console.log("error submit!!");
-          return false;
+          alert("请填写完整信息");
         }
       });
     },
