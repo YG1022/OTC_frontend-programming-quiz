@@ -12,6 +12,7 @@
 
 <script lang="ts">
 import { defineComponent, onMounted } from "vue";
+import axios from "axios";
 import CustomGood from "@/components/custom-good/index.vue";
 import CustomFooter from "@/components/custom-footer/index.vue";
 import { goodsStore } from "@/store/store";
@@ -35,13 +36,17 @@ export default defineComponent({
 
   setup() {
     onMounted(() => {
-      fetch("/api/goods", { method: "GET" })
-        .then((res) => res.json())
-        .then((data) => (goodsStore.goodsList = goodData(data)));
+      axios.get("/api/goods").then((res) => {
+        if (res.status === 200) {
+          goodsStore.setGoodsList(goodData(res.data));
+        }
+      });
     });
 
     return {
-      goods: goodsStore.goodsList,
+      goods: localStorage.getItem("goods")
+        ? JSON.parse(localStorage.getItem("goods") || "")
+        : goodsStore.goodsList,
     };
   },
 });
