@@ -25,6 +25,7 @@ import CustomGood from "@/components/custom-good/index.vue";
 import CustomFooter from "@/components/custom-footer/index.vue";
 import { goodsStore } from "@/store/store";
 import type { good } from "@/constants/type";
+import { calTotalPrice } from "@/constants/utils";
 
 const goodData = (data: good[]) => {
   return data.map((item) => {
@@ -44,6 +45,12 @@ export default defineComponent({
   },
   methods: {
     submitForm() {
+      const amountCheck = calTotalPrice(this.goods) === 0;
+      if (amountCheck) {
+        alert("请至少选择一件商品");
+        return;
+      }
+
       const formComponent = this.$refs.myForm as any;
       const formData = formComponent.$refs.form;
       formData.validate((valid: boolean) => {
