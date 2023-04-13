@@ -11,4 +11,5 @@ export type good = {
 export type goodsSate = {
   goodsList: good[];
   setGoodsList: (goodsList: goodsSate["goodsList"]) => void;
+  updateGood: (good: good) => void;
 };
