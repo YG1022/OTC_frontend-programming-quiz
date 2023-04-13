@@ -6,6 +6,7 @@
         <button type="button" class="btn btn-primary">新增订单</button>
       </RouterLink>
     </header>
+    <div class="loading" v-if="orders.length === 0">暂无订单</div>
     <custom-order v-for="order in orders" :key="order.id" :order="order" />
   </main>
 </template>

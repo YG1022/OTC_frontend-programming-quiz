@@ -103,6 +103,11 @@ export default defineComponent({
       });
     },
   },
+  computed: {
+    goods() {
+      return goodsStore.goodsList;
+    },
+  },
 
   setup() {
     onMounted(() => {
@@ -112,12 +117,6 @@ export default defineComponent({
         }
       });
     });
-
-    return {
-      goods: localStorage.getItem("goods")
-        ? JSON.parse(localStorage.getItem("goods") || "")
-        : goodsStore.goodsList,
-    };
   },
 });
 </script>
