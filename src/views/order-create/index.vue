@@ -11,9 +11,23 @@
       <custom-footer :goodsArray="goods" />
     </div>
     <div class="btn-content">
-      <button>取消</button>
+      <button @click="cancelOrder">取消</button>
       <button @click="submitForm">提交</button>
     </div>
+    <el-dialog
+      title="确认取消订单"
+      :visible.sync="showConfirmDialog"
+      width="30%"
+      :modal-append-to-body="false"
+      :close-on-click-modal="false"
+      :close-on-press-escape="false"
+    >
+      <p>取消将不会保存所填写内容，并会返回首页</p>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="showConfirmDialog = false">取消</el-button>
+        <el-button type="primary" @click="confirmCancelOrder">确认</el-button>
+      </span>
+    </el-dialog>
   </main>
 </template>
 
@@ -26,6 +40,7 @@ import CustomFooter from "@/components/custom-footer/index.vue";
 import { goodsStore } from "@/store/store";
 import type { good } from "@/constants/type";
 import { calTotalPrice } from "@/constants/utils";
+import { Dialog, Button } from "element-ui";
 
 const goodData = (data: good[]) => {
   return data.map((item) => {
@@ -42,8 +57,22 @@ export default defineComponent({
     CustomForm,
     CustomGood,
     CustomFooter,
+    [Dialog.name]: Dialog,
+    [Button.name]: Button,
+  },
+  data() {
+    return {
+      showConfirmDialog: false,
+    };
   },
   methods: {
+    cancelOrder() {
+      this.showConfirmDialog = true;
+    },
+    confirmCancelOrder() {
+      this.showConfirmDialog = false;
+      this.$router.push("/");
+    },
     submitForm() {
       const amountCheck = calTotalPrice(this.goods) === 0;
       if (amountCheck) {
