@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import type { good } from "@/constants/type";
-import { defineComponent, reactive, watch } from "vue";
+import { defineComponent } from "vue";
 import { goodsStore } from "@/store/store";
 
 export default defineComponent({
@@ -19,34 +19,41 @@ export default defineComponent({
       required: true,
     },
   },
-
-  setup(props) {
-    const goodObj = reactive(props.obj);
-    const maxQuantity = goodObj.stock;
-    const handleAdd = () => {
-      if (goodObj.amount < goodObj.stock) {
-        goodObj.amount++;
-        goodsStore.updateGood(goodObj);
-      }
+  data() {
+    return {
+      goodObj: this.obj,
+      maxQuantity: this.obj.stock,
     };
-    const handleSub = () => {
-      if (goodObj.amount > 0) {
-        goodObj.amount--;
-        goodsStore.updateGood(goodObj);
+  },
+  methods: {
+    handleAdd() {
+      if (this.goodObj.amount < this.goodObj.stock) {
+        this.goodObj.amount++;
+        goodsStore.updateGood(this.goodObj);
       }
-    };
-    watch(
-      () => goodObj.amount,
-      (newValue) => {
-        if (newValue > maxQuantity) {
-          goodObj.amount = maxQuantity;
-        } else if (newValue < 0) {
-          goodObj.amount = 0;
+    },
+    handleSub() {
+      if (this.goodObj.amount > 0) {
+        this.goodObj.amount--;
+        goodsStore.updateGood(this.goodObj);
+      }
+    },
+  },
+  watch: {
+    goodObj: {
+      handler(newValue) {
+        if (newValue.amount > this.maxQuantity) {
+          this.goodObj.amount = this.maxQuantity;
+        } else if (newValue.amount < 0) {
+          this.goodObj.amount = 0;
         }
-      }
-    );
-
-    return { goodObj, handleAdd, handleSub };
+      },
+      deep: true,
+    },
+  },
+  beforeDestroy() {
+    this.goodObj.amount = 0;
+    goodsStore.updateGood(this.goodObj);
   },
 });
 </script>
