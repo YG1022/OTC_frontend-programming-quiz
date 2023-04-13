@@ -6,14 +6,19 @@
         <custom-form ref="myForm" />
       </div>
       <div class="goods">
-        <custom-good v-for="good in goods" :key="good.id" :good="good" />
+        <custom-good
+          class="good-cards"
+          v-for="good in goods"
+          :key="good.id"
+          :good="good"
+        />
       </div>
-      <div class="footer">
+      <div class="footer-content">
         <custom-footer :goodsArray="goods" />
-      </div>
-      <div class="btn-content">
-        <el-button @click="cancelOrder">取消</el-button>
-        <el-button @click="submitForm">提交</el-button>
+        <div class="btn-content">
+          <el-button @click="cancelOrder">取消</el-button>
+          <el-button class="submit-btn" @click="submitForm">提交</el-button>
+        </div>
       </div>
     </div>
     <el-dialog
@@ -130,11 +135,45 @@ export default defineComponent({
 }
 .form-content {
   margin: 20px 300px;
-  padding: 36px 300px;
+  padding: 36px 0 0;
   background-color: var(--white);
   border-radius: 10px;
   box-shadow: 0 4px 6px 0 var(--color-shadow);
   display: flex;
   flex-direction: column;
+  position: relative;
+  min-height: 100%;
+}
+.form {
+  padding: 0 300px;
+  flex: 1;
+}
+.goods {
+  padding: 0 300px;
+  flex: 1;
+  overflow-y: auto;
+}
+.good-cards {
+  margin: 20px;
+  padding: 0;
+  background-color: var(--white);
+  border: 1px solid var(--color-border);
+  box-sizing: border-box;
+  box-shadow: 0px 4px 6px 0px var(--color-shadow);
+  border-radius: 10px;
+  display: flex;
+}
+.footer-content {
+  padding: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-shadow: 0px 4px 6px 0px var(--color-shadow);
+  border-top: 1px solid var(--color-border);
+}
+.submit-btn {
+  background-color: var(--color-primary);
+  color: var(--white);
 }
 </style>

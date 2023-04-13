@@ -1,7 +1,7 @@
 <template>
   <div class="my-counter">
     <el-button class="btn btn-light" @click="handleSub">-</el-button>
-    <el-input type="number" v-model.number="goodObj.amount" />
+    <el-input class="count" type="number" v-model.number="goodObj.amount" />
     <el-button class="btn btn-light" @click="handleAdd">+</el-button>
   </div>
 </template>
@@ -58,4 +58,21 @@ export default defineComponent({
 });
 </script>
 
-<style></style>
+<style scoped>
+.btn {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  outline: none;
+  cursor: pointer;
+}
+.count {
+  width: 60px;
+  height: 40px;
+  padding: 0;
+  margin: 0 5px;
+  padding: 0;
+  outline: none;
+  text-align: center;
+}
+</style>

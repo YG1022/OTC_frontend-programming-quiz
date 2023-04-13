@@ -28,4 +28,10 @@ export default defineComponent({
 });
 </script>
 
-<style></style>
+<style scoped>
+.total-amount {
+  font-size: var(--fs-20);
+  font-weight: 800;
+  color: var(--color-primary);
+}
+</style>
