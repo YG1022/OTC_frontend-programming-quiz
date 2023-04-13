@@ -3,19 +3,18 @@
     <div class="left">
       <div class="custom-control custom-checkbox">
         <label class="custom-control-label" for="input">
-          <img
-            src="http://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"
-            alt=""
-          />
+          <img :src="good.cover" alt="" />
         </label>
       </div>
     </div>
     <div class="right">
-      <div class="top">商品名称</div>
+      <div class="top">{{ good.name }}</div>
       <div class="bottom">
-        <span class="price">单价: ¥ 100</span>
-        <span class="stock">剩余库存: 0</span>
-        <span> 数量组件 </span>
+        <span class="price">单价: ¥ {{ good.price }}</span>
+        <span class="stock">剩余库存: {{ good.stock }}</span>
+        <span>
+          <custom-count :obj="good" />
+        </span>
       </div>
     </div>
   </div>
@@ -23,8 +22,20 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import CustomCount from "@/components/custom-count/index.vue";
+import type { good } from "@/constants/type";
+
 export default defineComponent({
   name: "CustomGood",
+  props: {
+    good: {
+      type: Object as () => good,
+      required: true,
+    },
+  },
+  components: {
+    CustomCount,
+  },
 });
 </script>
 
