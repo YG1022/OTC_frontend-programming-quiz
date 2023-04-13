@@ -7,30 +7,38 @@
       <el-input v-model="form.nickName"></el-input>
     </el-form-item>
     <el-form-item label="手机号码" prop="phone">
-      <select v-model="form.prefix">
-        <option v-for="prefix in prefixes" :value="prefix" :key="prefix">
+      <el-select v-model="form.prefix">
+        <el-option v-for="prefix in prefixes" :value="prefix" :key="prefix">
           {{ prefix }}
-        </option>
-      </select>
-      <el-input v-model="form.phone"></el-input>
+        </el-option>
+      </el-select>
+      <el-input type="number" v-model="form.phone"></el-input>
     </el-form-item>
     <el-form-item label="收货地址" prop="address">
-      <select v-model="form.province" @change="updateCities">
-        <option v-for="province in provinces" :value="province" :key="province">
+      <el-select v-model="form.province" @change="updateCities">
+        <el-option
+          v-for="province in provinces"
+          :value="province"
+          :key="province"
+        >
           {{ province }}
-        </option>
-      </select>
-      <select v-model="form.city" @change="updateDistricts">
-        <option v-for="city in cities" :value="city" :key="city">
+        </el-option>
+      </el-select>
+      <el-select v-model="form.city" @change="updateDistricts">
+        <el-option v-for="city in cities" :value="city" :key="city">
           {{ city }}
-        </option>
-      </select>
-      <select v-model="form.discrict">
-        <option v-for="district in districts" :value="district" :key="district">
+        </el-option>
+      </el-select>
+      <el-select v-model="form.discrict">
+        <el-option
+          v-for="district in districts"
+          :value="district"
+          :key="district"
+        >
           {{ district }}
-        </option>
-      </select>
-      <el-input v-model="form.address"></el-input>
+        </el-option>
+      </el-select>
+      <el-input type="textarea" v-model="form.address"></el-input>
     </el-form-item>
     <label>选择商品</label>
   </el-form>
@@ -38,17 +46,9 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { Input, Select, Form, FormItem, Button } from "element-ui";
 
 export default defineComponent({
   name: "CustomForm",
-  components: {
-    [Input.name]: Input,
-    [Select.name]: Select,
-    [Form.name]: Form,
-    [FormItem.name]: FormItem,
-    [Button.name]: Button,
-  },
   data() {
     const initialFormData = {
       consignee: "",

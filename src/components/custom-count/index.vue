@@ -1,8 +1,8 @@
 <template>
   <div class="my-counter">
-    <button class="btn btn-light" @click="handleSub">-</button>
-    <input type="number" v-model.number="goodObj.amount" />
-    <button class="btn btn-light" @click="handleAdd">+</button>
+    <el-button class="btn btn-light" @click="handleSub">-</el-button>
+    <el-input type="number" v-model.number="goodObj.amount" />
+    <el-button class="btn btn-light" @click="handleAdd">+</el-button>
   </div>
 </template>
 

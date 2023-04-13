@@ -16,7 +16,7 @@
       </div>
       <div class="bottom">
         <span class="price">¥ {{ order.totalPrice }}</span>
-        <button @click="deleteOrder">删除</button>
+        <el-button @click="deleteOrder">删除</el-button>
       </div>
     </div>
   </div>

@@ -11,8 +11,8 @@
       <custom-footer :goodsArray="goods" />
     </div>
     <div class="btn-content">
-      <button @click="cancelOrder">取消</button>
-      <button @click="submitForm">提交</button>
+      <el-button @click="cancelOrder">取消</el-button>
+      <el-button @click="submitForm">提交</el-button>
     </div>
     <el-dialog
       title="确认取消订单"
@@ -40,7 +40,6 @@ import CustomFooter from "@/components/custom-footer/index.vue";
 import { goodsStore } from "@/store/store";
 import type { good } from "@/constants/type";
 import { calTotalPrice } from "@/constants/utils";
-import { Dialog, Button } from "element-ui";
 
 const goodData = (data: good[]) => {
   return data.map((item) => {
@@ -57,8 +56,6 @@ export default defineComponent({
     CustomForm,
     CustomGood,
     CustomFooter,
-    [Dialog.name]: Dialog,
-    [Button.name]: Button,
   },
   data() {
     return {

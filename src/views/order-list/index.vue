@@ -3,10 +3,10 @@
     <header class="header fs-20">
       订单列表
       <RouterLink to="/create">
-        <button type="button" class="btn btn-primary">新增订单</button>
+        <el-button type="button" class="btn btn-primary">新增订单</el-button>
       </RouterLink>
     </header>
-    <div class="loading" v-if="orders.length === 0">暂无订单</div>
+    <div class="loading description" v-if="orders.length === 0">暂无订单</div>
     <custom-order v-for="order in orders" :key="order.id" :order="order" />
   </main>
 </template>
