@@ -67,7 +67,7 @@ export default defineComponent({
   cursor: pointer;
 }
 .count {
-  width: 60px;
+  width: 80px;
   height: 40px;
   padding: 0;
   margin: 0 5px;
