@@ -1,17 +1,19 @@
 <template>
-  <main>
+  <main class="order-create-page">
     <header class="header fs-20">订货信息填写</header>
     <div class="form-content">
-      <div class="form">
-        <custom-form ref="myForm" />
-      </div>
-      <div class="goods">
-        <custom-good
-          class="good-cards"
-          v-for="good in goods"
-          :key="good.id"
-          :good="good"
-        />
+      <div class="upper-content">
+        <div class="form">
+          <custom-form ref="myForm" />
+        </div>
+        <div class="goods">
+          <custom-good
+            class="good-cards"
+            v-for="good in goods"
+            :key="good.id"
+            :good="good"
+          />
+        </div>
       </div>
       <div class="footer-content">
         <custom-footer :goodsArray="goods" />
@@ -137,6 +139,11 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.order-create-page {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 104px);
+}
 .header {
   height: 64px;
   line-height: 64px;
@@ -146,7 +153,7 @@ export default defineComponent({
 }
 .form-content {
   margin: 20px 300px;
-  padding: 36px 0 0;
+  padding: 36px 0 72px;
   background-color: var(--white);
   border-radius: 10px;
   box-shadow: 0 4px 6px 0 var(--color-shadow);
@@ -155,17 +162,21 @@ export default defineComponent({
   position: relative;
   min-height: 100%;
 }
+.upper-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
 .form {
   padding: 0 300px;
-  flex: 1;
 }
 .goods {
   padding: 0 300px;
-  flex: 1;
-  overflow-y: auto;
+  height: calc(100vh - 548px);
+  overflow-y: scroll;
 }
 .good-cards {
-  margin: 20px;
+  margin: 12px -12px 12px 12px;
   padding: 0;
   background-color: var(--white);
   border: 1px solid var(--color-border);
@@ -182,6 +193,11 @@ export default defineComponent({
   width: 100%;
   box-shadow: 0px 4px 6px 0px var(--color-shadow);
   border-top: 1px solid var(--color-border);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20px;
 }
 .submit-btn {
   background-color: var(--color-primary);
