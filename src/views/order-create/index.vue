@@ -118,7 +118,9 @@ export default defineComponent({
   },
   computed: {
     goods() {
-      return goodsStore.goodsList;
+      return localStorage.getItem("goods")
+        ? JSON.parse(localStorage.getItem("goods") as string)
+        : goodsStore.goodsList;
     },
   },
 
