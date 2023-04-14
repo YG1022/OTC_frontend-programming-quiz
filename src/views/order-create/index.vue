@@ -108,10 +108,14 @@ export default defineComponent({
             (item: { validateState: string }) => item.validateState === "error"
           );
           if (errorFields.length === 1) {
-            this.$message.error("请填写所有必填项");
+            const fieldMap = {
+              consignee: "姓名",
+              phone: "手机号码",
+              address: "收货地址",
+            } as Record<string, string>;
+            const field = errorFields[0].prop as string;
+            this.$message.error(`请填写${fieldMap[field]}`);
           } else {
-            console.log(errorFields);
-
             this.$message.error("请完善订单信息");
           }
         }
