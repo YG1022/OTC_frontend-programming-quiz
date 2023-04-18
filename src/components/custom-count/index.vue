@@ -12,6 +12,7 @@ import { defineComponent, onBeforeUnmount, ref, watch } from "vue";
 import { goodsStore } from "@/store/store";
 
 export default defineComponent({
+  name: "CustomCount",
   props: {
     obj: {
       type: Object as () => good,
